@@ -1,0 +1,31 @@
+def sum(a):
+	b = int(a[2])
+	c = (a[1])
+	d = int(a[0])
+	if c == "+":
+		m = (b + d)
+	else:
+		m = (b - d)
+	return m
+n = input('Введите пример для решения ')
+a = n.split()
+for x in a:
+	if x == '*':
+		b = a.index('*')
+		c = int(a[b - 1])
+		d = int(a[b + 1])
+		e = (c * d)
+		del a[b - 1:b + 2]
+		a.insert(b - 1,e)
+	elif x == '/':
+		b = a.index('/')
+		c = int(a[b - 1])
+		d = int(a[b + 1])
+		e = (c / d)
+		del a[b - 1:b + 2]
+		a.insert(b - 1,e)
+while len(a) > 1:
+	m = sum(a)
+	del a[0:3]
+	a.insert(0,m)
+	print(a)
